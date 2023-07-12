@@ -46,12 +46,9 @@ export class LandingComponent {
         });
 
     }else{
-      //console.log(this.form);
       this.form.markAllAsTouched();
       console.log("Entradas no validas");
-      return;
-      
-      
+      return;  
     }
   }
 }

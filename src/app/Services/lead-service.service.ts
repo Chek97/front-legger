@@ -17,4 +17,8 @@ export class LeadServiceService {
   getPublicAddress(){
     return this.httpClient.get('https://api.ipify.org/?format=json');
   }
+
+  getLead(){
+    return this.httpClient.get(`${this.url}/api/lead`);
+  }
 }

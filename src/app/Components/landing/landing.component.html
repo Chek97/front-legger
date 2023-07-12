@@ -5,6 +5,7 @@
     </div>
     <div *ngIf="created === true" class="thanks-message">
         <p>Muchas gracias por registrar un lead</p>
+        <button class="btn-submit">Obtener Archivo Excel</button>
     </div>
     <form *ngIf="created === false" class="form-container" (ngSubmit)="submit()" [formGroup]="form">
         <p class="text-info">
