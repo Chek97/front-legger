@@ -1,0 +1,140 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../../../assets/background.jpg');
+    background-repeat: repeat;
+    position: relative;
+    display: flex;
+}
+
+.details {
+    background: url('../../../assets/textures.png');
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.halloween {
+    min-width: 600px;
+    z-index: 3;
+}
+
+.halloween > img {
+    width: 100%;
+    height: 100%;
+}
+
+.form-container {
+    background-color: #ebebeb;
+    width: 500px;
+    height: 100%;
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 10px;
+    padding: 50px;
+    z-index: 3;
+}
+
+.text-info {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #747171;
+}
+
+.text-info > span {
+    background-color: #4d208d;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.input  {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    outline: none;
+    margin: 15px 0;
+    color: #747171;
+    background-color: #fff;
+}
+
+.check-container {
+    display: flex;
+    padding: 10px 0;
+}
+
+.check-container > input {
+    margin: 10px;
+}
+
+.check-container > p {
+    color: #4d208d;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 2rem;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.btn-submit {
+    background-color: #4d208d;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    margin-top: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 350px;
+    border-radius: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #3a1868;
+}
+
+.error-text {
+    color: red;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.thanks-message {
+    background-color: #ebebeb;
+    font-size: 24px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 3;
+    border-radius: 10px;
+    color: #747171;
+    margin-top: 50px;
+    box-shadow: 5px 5px 1px #000;
+}
+
+/* MEDIA QUERYS */
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .halloween {
+        max-width: 700px;
+    }
+
+    .halloween > img {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+  

@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="details"></div>
+    <div class="halloween">
+        <img src="assets/KV.png" alt="hallowen">
+    </div>
+    <div *ngIf="created === true" class="thanks-message">
+        <p>Muchas gracias por registrar un lead</p>
+    </div>
+    <form *ngIf="created === false" class="form-container" (ngSubmit)="submit()" [formGroup]="form">
+        <p class="text-info">
+            <span>1.</span> Inscripcion punto de venta
+        </p>
+        <input 
+            type="text"
+            placeholder="Nombre del cliente"
+            class="input"
+            formControlName="name"
+            >
+            <span *ngIf="form.controls['name'].getError('required') && form.controls['name'].touched" class="error-text">
+                El nombre del cliente es requerido
+            </span>
+            <span *ngIf="form.controls['name'].getError('pattern') && form.controls['name'].touched" class="error-text">
+                El nombre del cliente debe ser alfabetico
+            </span>
+            <input 
+            type="text"
+            placeholder="NIT"
+            class="input"
+            formControlName="nit"
+            >
+            <span *ngIf="form.controls['nit'].getError('required') && form.controls['nit'].touched" class="error-text">
+                El nit es requerido
+            </span>
+            <span *ngIf="form.controls['nit'].getError('pattern') && form.controls['nit'].touched" class="error-text">
+                El nit no debe tener caracteres especiales
+            </span>
+            <input 
+            type="text"
+            placeholder="Nombre del punto"
+            class="input"
+            formControlName="pointName"
+            >
+            <span *ngIf="form.controls['pointName'].getError('pattern') && form.controls['pointName'].touched" class="error-text">
+                El nombre del punto no debe tener caracteres especiales
+            </span>
+            <input 
+                type="text"
+                placeholder="Nombre del equipo"
+                class="input"
+                formControlName="teamName"
+            >
+            <span *ngIf="form.controls['teamName'].getError('pattern') && form.controls['teamName'].touched" class="error-text">
+                El nombre del equipo no debe tener caracteres especiales
+            </span>
+            <select formControlName="city" class="input">
+                <option value="">Selecciona una ciudad</option>
+                <option value="bogota">Bogota</option>
+                <option value="cali">Cali</option>
+                <option value="medellin">Medellin</option>
+                <option value="nariño">Nariño</option>
+                <option value="barranquilla">Barranquilla</option>
+            </select>
+            <span *ngIf="form.controls['promotor'].getError('pattern') && form.controls['promotor'].touched" class="error-text">
+                La ciudad no debe tener caracteres especiales
+            </span>
+            <input 
+            type="text"
+            placeholder="Promotor"
+            class="input"
+            formControlName="promotor"
+            >
+            <span *ngIf="form.controls['promotor'].getError('pattern') && form.controls['promotor'].touched" class="error-text">
+                El promotor no debe tener caracteres especiales
+            </span>
+            <input 
+            type="number"
+            placeholder="RTC"
+            class="input"
+            formControlName="rtc"
+            >
+            <span *ngIf="form.controls['rtc'].getError('pattern') && form.controls['rtc'].touched" class="error-text">
+                El rtc no debe tener caracteres especiales
+            </span>
+            <input 
+            type="text"
+            placeholder="Capitan y/o Usuario(Solo minusculas)"
+            class="input"
+            formControlName="captain"
+            >
+            <span *ngIf="form.controls['captain'].getError('pattern') && form.controls['captain'].touched" class="error-text">
+                El nombre del capitan no debe tener caracteres especiales
+            </span>
+            <div class="check-container">
+                <input 
+                type="checkbox"
+                formControlName="terms"
+                > 
+                <p>He leido y acepto las politicas de Tratamiento de datos personales. Conoce los terminos y condiciones</p>
+        </div>
+        <span *ngIf="form.controls['terms'].getError('required') && form.controls['terms'].touched" class="error-text">
+            Debes aceptar los terminos y condiciones
+        </span>
+        <div class="button-container">
+            <button type="submit" class="btn-submit">Siguiente</button>
+        </div>
+    </form>
+</div>
