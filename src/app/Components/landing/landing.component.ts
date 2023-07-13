@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-/* import * as publicIp  from 'public-ip'; */
 import { LeadServiceService } from 'src/app/Services/lead-service.service';
-
+import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -13,6 +12,7 @@ export class LandingComponent {
   public form: FormGroup;
   publicIp: string = "";
   created: boolean = false;
+  leads = [];
   
   constructor(private leadService: LeadServiceService){
     this.form = new FormGroup({
@@ -30,6 +30,8 @@ export class LandingComponent {
     this.leadService.getPublicAddress().subscribe((response: any) => {
       this.publicIp = response.ip;
     });
+
+    this.getLeads();
 
   }
   
@@ -50,5 +52,23 @@ export class LandingComponent {
       console.log("Entradas no validas");
       return;  
     }
+  }
+
+  getLeads(){
+    this.leadService.getLead()
+      .subscribe((response: any) => {
+      this.leads = response.leads;
+    });
+  }
+
+  export(){
+    let name: string = 'Registros.xlsx';
+    
+    const workSheet: XLSX.WorkSheet= XLSX.utils.json_to_sheet(this.leads);
+
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, workSheet, 'Hoja 1');
+
+    XLSX.writeFile(book, name);
   }
 }
